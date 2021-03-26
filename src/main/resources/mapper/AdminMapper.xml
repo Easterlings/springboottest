@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xdxiaoran.mapper.AdminMapper">
+    <select id="getAllAdmin" resultType="Admin">
+    select * from admin;
+    </select>
+
+    <select id="getOneAdmin" resultType="Admin" parameterType="int">
+        select * from admin where id=#{id};
+    </select>
+
+    <delete id="deleteOneAdmin" parameterType="int">
+        delete from admin where id = #{id};
+    </delete>
+
+    <insert id="insertOneAdmin" parameterType="com.xdxiaoran.pojo.Admin">
+        insert into admin values ( #{id} , #{name}, #{account} , #{password});
+    </insert>
+
+    <update id="updateOneAdminNameById" parameterType="com.xdxiaoran.pojo.Admin">
+        update admin set name = #{name} where id = #{id};
+    </update>
+</mapper>
